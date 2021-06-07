@@ -1,0 +1,13 @@
+<div class="add-container">
+    <div class="section-title">Add promotion</div>
+
+    <input [(ngModel)]="name" name="name" placeholder="name" type="text" maxlength="180">
+
+
+    <mat-select [(ngModel)]="selectedProducers" name="type" placeholder="type" multiple>
+        <mat-option *ngFor="let producer of producers" [value]="producer">{{producer.name}}</mat-option>
+    </mat-select>
+
+
+    <button (click)="addProduct()" type="submit">add promotion</button>
+</div>
