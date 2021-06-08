@@ -1,14 +1,16 @@
 <div class="add-container">
     <div class="section-title">Add promotion</div>
+    <div class="inputs">
 
-    <input [(ngModel)]="name" name="name" placeholder="name" type="text" maxlength="180">
+        <input class="input-text" [(ngModel)]="name" name="name" placeholder="name" type="text" maxlength="180">
 
 
-    <mat-select [(ngModel)]="type" name="type" placeholder="type">
-        <mat-option *ngFor="let type of types" [value]="type">{{type}}</mat-option>
-    </mat-select>
+        <mat-select class="input-select" [(ngModel)]="type" name="type" placeholder="type">
+            <mat-option *ngFor="let type of types" [value]="type">{{type}}</mat-option>
+        </mat-select>
 
-    <input [(ngModel)]="value" name="value" placeholder="value" type="number" maxlength="3">
+        <input  class="input-text" [(ngModel)]="value" name="value" placeholder="value" type="number" maxlength="3">
+    </div>
 
     <button (click)="addPromotion()" type="submit">add promotion</button>
 </div>

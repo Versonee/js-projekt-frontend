@@ -1,1 +1,49 @@
-<p>products works!</p>
+<div class="filters">
+
+    <input class="input-text" [(ngModel)]="filter.price" name="price" placeholder="maximum cost" type="number" maxlength="3">
+    <input class="input-text" [(ngModel)]="filter.available" name="available" placeholder="available amount" type="number" maxlength="3">
+
+    <mat-select class="input-select" [(ngModel)]="filter.shop" name="shop" placeholder="shop">
+        <mat-option *ngFor="let shop of shops" [value]="shop">{{shop.name}}</mat-option>
+    </mat-select>
+
+    <mat-select class="input-select" [(ngModel)]="filter.product" name="product" placeholder="product">
+        <mat-option *ngFor="let product of products" [value]="product">{{product.name}}</mat-option>
+    </mat-select>
+
+    <mat-select class="input-select" [(ngModel)]="filter.promotion" name="promotion" placeholder="promotion">
+        <mat-option *ngFor="let promotion of promotions" [value]="promotion">{{promotion.name}}</mat-option>
+    </mat-select>
+
+    <mat-select class="input-select" [(ngModel)]="sortBy" name="promotion" placeholder="sort by">
+        <mat-option *ngFor="let sortBy of sortByOptions" [value]="sortBy">{{sortBy}}</mat-option>
+    </mat-select>
+
+    <button (click)="applyFilters()" type="submit">Filter</button>
+    <button (click)="clearFilters()" type="submit">Clear</button>
+
+</div>
+
+<div class="data-container">
+    <div class="header row">
+        <div>No.</div>
+        <div>Id</div>
+        <div>Product name</div>
+        <div>Prototype id</div>
+        <div>Price</div>
+        <div>Shop name</div>
+        <div>Available</div>
+        <div>Promotion</div>
+
+    </div>
+    <div *ngFor="let item of filteredData; let i = index" class="row">
+        <div>{{i+1}}</div>
+        <div>{{item.id}}</div>
+        <div>{{item.product.name}}</div>
+        <div>{{item.product.id}}</div>
+        <div>{{item.price}}</div>
+        <div>{{item.shop.name}}</div>
+        <div>{{item.available}}</div>
+        <div>{{item.promotion.name}}</div>
+    </div>
+</div>

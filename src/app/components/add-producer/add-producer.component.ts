@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {ProducerService} from '../../service/ProducerService/producer.service';
 
+
 @Component({
     selector: 'app-add-producer',
     templateUrl: './add-producer.component.html',
@@ -9,7 +10,6 @@ import {ProducerService} from '../../service/ProducerService/producer.service';
     providers: [MatSnackBar]
 })
 export class AddProducerComponent implements OnInit {
-
     public name = '';
 
     constructor(private producerService: ProducerService,
@@ -22,9 +22,7 @@ export class AddProducerComponent implements OnInit {
         if (!this.name) { return; }
         this.producerService.addProducer(this.name)
             .then(e => this.snackBar.open('Producer added successfully!', 'Exit', {duration: 4000}));
-    }
-    public getProducers(): void{
-
+        this.name = '';
     }
 
 }

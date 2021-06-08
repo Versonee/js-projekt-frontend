@@ -16,6 +16,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { AddProducerComponent } from './components/add-producer/add-producer.component';
 import { AddShopComponent } from './components/add-shop/add-shop.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
+import { AddShopItemComponent } from './components/add-shop-item/add-shop-item.component';
 
 @NgModule({
     declarations: [
@@ -27,7 +28,8 @@ import { AddProductComponent } from './components/add-product/add-product.compon
         AddPromotionComponent,
         AddProducerComponent,
         AddShopComponent,
-        AddProductComponent
+        AddProductComponent,
+        AddShopItemComponent
     ],
     imports: [
         BrowserModule,

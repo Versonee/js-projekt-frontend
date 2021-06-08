@@ -1,13 +1,16 @@
 <div class="add-container">
-    <div class="section-title">Add promotion</div>
+    <div class="section-title">Add product</div>
 
-    <input [(ngModel)]="name" name="name" placeholder="name" type="text" maxlength="180">
+    <div class="inputs">
 
-
-    <mat-select [(ngModel)]="selectedProducers" name="type" placeholder="type" multiple>
-        <mat-option *ngFor="let producer of producers" [value]="producer">{{producer.name}}</mat-option>
-    </mat-select>
+        <input class="input-text" [(ngModel)]="name" name="name" placeholder="name" type="text" maxlength="180">
 
 
-    <button (click)="addProduct()" type="submit">add promotion</button>
+        <mat-select class="input-select" [(ngModel)]="selectedProducers" name="type" placeholder="producers" multiple>
+            <mat-option *ngFor="let producer of producers" [value]="producer">{{producer.name}}</mat-option>
+        </mat-select>
+    </div>
+
+
+    <button (click)="addProduct()" type="submit">add product</button>
 </div>

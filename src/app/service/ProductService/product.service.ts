@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {Product} from '../../components/add-product/model/Product';
 import {HttpClient} from '@angular/common/http';
 import {BaseApiService} from '../BaseApiService/base-api.service';
+import {ProductRequest} from '../../components/add-product/model/ProductRequest';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ export class ProductService {
               protected options: BaseApiService) {
   }
 
-  public addProduct(product: Product): Promise<any> {
+  public addProduct(product: ProductRequest): Promise<any> {
     return this.http.post(this.options.url() + '/add-product', product ).toPromise();
   }
   public getProducts(): Promise<any> {

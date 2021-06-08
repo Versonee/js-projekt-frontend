@@ -1,9 +1,6 @@
 import {Producer} from '../../add-producer/model/Producer';
 
-export interface Product{
+export interface ProductRequest{
     name: string;
     producers: Producer[];
-    id: number;
-    created: Date;
-    updated: Date;
 }
