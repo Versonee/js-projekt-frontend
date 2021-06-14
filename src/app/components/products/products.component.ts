@@ -23,6 +23,7 @@ export class ProductsComponent implements OnInit {
     promotion: undefined,
     shop: undefined
   };
+  public selectedItem: ShopItem | undefined = undefined;
   public sortBy: string | undefined;
   public shops: Shop[] = [];
   public products: Product[] = [];
@@ -63,6 +64,7 @@ export class ProductsComponent implements OnInit {
   }
 
   public applyFilters(): void {
+    this.filteredData = this.data;
     if (this.filter.available !== undefined){
       // @ts-ignore
       this.filteredData = this.data.filter(el => el.available >= this.filter.available);
@@ -99,5 +101,16 @@ export class ProductsComponent implements OnInit {
     this.filter.promotion = undefined;
     this.filter.shop = undefined;
     this.sortBy = undefined;
+  }
+
+  public setSelectedItem(item: ShopItem): void {
+    this.selectedItem = item;
+  }
+
+  public deleteItem(): void {
+    if (this.selectedItem){
+      this.shopItemService.delete(this.selectedItem.id).then(r => this.getItems());
+      this.selectedItem = undefined;
+    }
   }
 }

@@ -26,4 +26,11 @@ export class ShopItemService {
   public search(filters: DataFilter): Promise<any>  {
     return this.http.post(this.options.url() + '/search', {filters}).toPromise();
   }
+
+  public delete(id: number): Promise<{} | any> {
+    return this.http.delete(this.options.url() + '/delete-shop-item/' + id).toPromise();
+  }
+  public updateItem(id: number, shopItem: ShopItemRequest): Promise<any> {
+    return this.http.put(this.options.url() + '/update-shop-item/' + id, shopItem).toPromise();
+  }
 }

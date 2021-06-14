@@ -1,27 +1,27 @@
 <div class="add-container">
-    <div class="section-title">Add shop item</div>
+    <div class="section-title">{{item?'Edit shop item':'Add shop item'}}</div>
     <div class="container">
 
         <div class="inputs">
 
-            <input class="input-text" [(ngModel)]="price" name="price" placeholder="price" type="number" maxlength="3">
-            <input class="input-text" [(ngModel)]="available" name="available" placeholder="available" type="number" maxlength="3">
+            <input class="input-text" [(ngModel)]="price" name="price" placeholder="{{getPrice()}}" type="number" maxlength="3">
+            <input class="input-text" [(ngModel)]="available" name="available" placeholder="{{getAvailable()}}" type="number" maxlength="3">
         </div>
         <div class="selects">
 
-            <mat-select class="input-select" [(ngModel)]="shop" name="shop" placeholder="shop">
+            <mat-select class="input-select" [(ngModel)]="shop" name="shop" placeholder="{{getShop()}}">
                 <mat-option *ngFor="let shop of shops" [value]="shop">{{shop.name}}</mat-option>
             </mat-select>
 
-            <mat-select class="input-select" [(ngModel)]="product" name="product" placeholder="product">
+            <mat-select class="input-select" [(ngModel)]="product" name="product" placeholder="{{getProduct()}}" >
                 <mat-option *ngFor="let product of products" [value]="product">{{product.name}}</mat-option>
             </mat-select>
 
-            <mat-select class="input-select" [(ngModel)]="promotion" name="promotion" placeholder="promotion">
+            <mat-select class="input-select" [(ngModel)]="promotion" name="promotion" placeholder="{{getPromotion()}}" >
                 <mat-option *ngFor="let promotion of promotions" [value]="promotion">{{promotion.name}}</mat-option>
             </mat-select>
         </div>
     </div>
 
-    <button (click)="addShopItem()" type="submit">add shop item</button>
+    <button (click)="addShopItem()" type="submit">{{item?'edit shop item':'add shop item'}}</button>
 </div>
